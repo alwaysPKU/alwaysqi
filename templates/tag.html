@@ -1,0 +1,41 @@
+{% extends '__base__.html' %}
+{% set title = "Tag:" ~ tag ~ " &middot; 跬步" %}
+
+{% block content %}
+<div class="page">
+
+<h1 class="page-title">#{{ tag }}</h1>
+
+{% for blog in blogs %}
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/blog/{{ blog.id }}">
+        {{ blog.title }}
+      </a>
+    </h1>
+
+    <span class="post-date">{{ blog.created | datetime }}</span>
+
+    {{blog.summary }}
+
+  </div>
+{% endfor %}
+
+<div class="pagination">
+
+    {% if page.has_next %}
+    <a class="pagination-item older" href="/tags/{{ tag }}/{{ page.page_index + 1 }}">Older</a>
+    {% else %}
+    <span class="pagination-item older">Older</span>
+    {% endif %}
+
+
+    {% if page.has_previous %}
+    <a class="pagination-item newer" href="/tags/{{ tag }}/{{ page.page_index - 1 }}">Newer</a>
+    {% else %}
+    <span class="pagination-item newer">Newer</span>
+    {% endif %}
+
+</div>
+</div>
+{% endblock %}

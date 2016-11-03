@@ -1,0 +1,50 @@
+{% extends '__base__.html' %}
+{% set title = blog.title ~ " &middot; 跬步" %}
+
+{% block content %}
+        <div class="post">
+  <h1 class="post-title">{{ blog.title }}</h1>
+  <span class="post-date">{{ blog.created | datetime }}</span>
+{{ blog.content | html }}
+
+{% if blog.xtags %}
+<div class="tags">
+{% for tag in blog.xtags %}
+  <a href="/tags/{{ tag }}">#{{ tag }}</a>
+{% endfor %}
+</div>
+{% endif %}
+</div>
+
+<div class="comments">
+  <div id="disqus_thread"></div>
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+      {% for rp in rps %}
+      <li>
+        <h3>
+          <a href="/blog/{{ rp.id }}">
+            {{ rp.title }}
+            <small>{{ rp.created | datetime }}</small>
+          </a>
+        </h3>
+      </li>
+      {% endfor %}
+  </ul>
+</div>
+
+<script type="text/javascript">
+  var disqus_shortname = 'boz';
+  var disqus_identifier = '{{ blog.id }}';
+  var disqus_title = '{{ blog.title }}';
+
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+{% endblock %}
