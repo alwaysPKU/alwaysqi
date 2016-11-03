@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-__author__ = 'zhu327'
+__author__ = 'alwaysqi'
 
 '''
 MySQL数据库操作封装

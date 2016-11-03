@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title><![CDATA[跬步]]></title>
+  <title><![CDATA[v窝]]></title>
   <subtitle><![CDATA[On Coding]]></subtitle>
   <link href="http://{{ url }}/feed" rel="self"/>
   <link href="http://{{ url }}"/>
@@ -10,7 +10,7 @@
     <name><![CDATA[{{user.name}}]]></name>
     <email><![CDATA[{{user.email}}]]></email>
   </author>
-  <generator uri="http://github.com/zhu327/boz">Boz</generator>
+  <generator uri="http://www.pkuse.applinzi.com">Boz</generator>
   {% for blog in blogs %}
   <entry>
     <title type="html"><![CDATA[{{ blog.title }}]]></title>

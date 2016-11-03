@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
-__author__ = 'zhu327'
+__author__ = 'alwaysqi'
 
 '''
 blogpy 数据库表定义
